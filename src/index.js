@@ -27,6 +27,11 @@ let optionImg = [
   `<img src="img/scissors.png" alt="SCISSORS">`
 ];
 
+console.log(
+  "selection value is ",
+  document.getElementById("userSelection").value
+);
+
 let userInput = document.getElementById("userSelection").value;
 
 const myChoice = userInput => {
