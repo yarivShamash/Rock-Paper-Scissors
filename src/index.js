@@ -2,46 +2,68 @@ import "./styles.css";
 
 document.getElementById("app").innerHTML = `
 <div id="main">
+  <img src="img/RPS.png">
   <h1>Rock Paper Scissors</h1>
 
-  <div id="areana">
-    <div id="user">
+  <div id="cont">
+    <div id="areana">
+      <div id="user">
+      </div>
+
+      <div id="vs"><img src="img/vs.png" alt="VS"></div>
+
+      <div id="computer">
+      </div>
     </div>
 
-    <div id="vs"><h2>VS</h2></div>
-
-    <div id="computer">
+    <div id="results">
     </div>
-  </div>
-
-  <div id="results">
   </div>
 </div>
 `;
 
 let options = ["rock", "paper", "scissors"];
+let optionImg = [
+  `<img src="img/rock.png" alt="ROCK">`,
+  `<img src="img/paper.png" alt="PAPER">`,
+  `<img src="img/scissors.png" alt="SCISSORS">`
+];
 
-let userInput = "scissors";
-// prompt(`Wellcome to RockPaperScissors.js. Please enter your pick!`)
+let userInput = prompt(
+  `Wellcome to RockPaperScissors.js. Please enter your pick!`
+);
 
 const myChoice = userInput => {
   userInput = userInput.toLowerCase();
 
-  if (
-    userInput === "rock" ||
-    userInput === "paper" ||
-    userInput === "scissors"
-  ) {
+  if (userInput === "rock") {
     console.log(`you chose ${userInput}. \n`);
     document.getElementById("user").innerHTML = `
-    <h2> You chose ${userInput}.</h2>
+    <h2> You chose ${optionImg[0]}.</h2>
+    `;
+    // console.log(`${options.indexOf(userInput)} \n \n`);
+
+    return userInput;
+  } else if (userInput === "paper") {
+    console.log(`you chose ${userInput}. \n`);
+    document.getElementById("user").innerHTML = `
+    <h2> You chose ${optionImg[1]}.</h2>
+    `;
+    // console.log(`${options.indexOf(userInput)} \n \n`);
+
+    return userInput;
+  } else if (userInput === "scissors") {
+    console.log(`you chose ${userInput}. \n`);
+    document.getElementById("user").innerHTML = `
+    <h2> You chose ${optionImg[2]}.</h2>
     `;
     // console.log(`${options.indexOf(userInput)} \n \n`);
 
     return userInput;
   } else {
-    document.getElementById("user").innerHTML = `
-    <h2> Error! Please enter a valid parameter: Rock, Paper or Scissors. </h2>`;
+    document.getElementById("cont").innerHTML = `
+    <h2> Error
+     Please enter a valid parameter: Rock, Paper or Scissors. </h2>`;
     console.log(
       "Error! Please enter a valid parameter: Rock, Paper or Scissors"
     );
@@ -51,12 +73,15 @@ const myChoice = userInput => {
 
 const computerChoice = () => {
   let chosenOption = options[Math.floor(Math.random() * 3)];
+  let chosenOptionIndex = options.indexOf(chosenOption);
+
+  console.log(`PC Index ${chosenOptionIndex}`);
 
   document.getElementById("computer").innerHTML = `
-  <h2>Computor chose ${chosenOption}.</h2>
+  <h2>Computor chose ${optionImg[chosenOptionIndex]}.</h2>
   `;
 
-  console.log(`Computor chose ${chosenOption}. \n`);
+  // console.log(`123 Computor chose ${chosenOptionIndex}. \n`);
 
   // console.log(`${options.indexOf(chosenOption)} \n \n`);
 
