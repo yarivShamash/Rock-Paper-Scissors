@@ -6,7 +6,10 @@ html {
 body {
   font-family: sans-serif;
 }
-
+#app {
+  background-image: url("img/BG.png");
+  background-color: rgb(219, 255, 227);
+}
 #main {
   display: flex;
   flex-direction: column;

@@ -2,12 +2,11 @@ import "./styles.css";
 
 document.getElementById("app").innerHTML = `
 <div id="main">
-  <img src="img/RPS.png">
-  <h1>Rock Paper Scissors</h1>
-
+ 
   <div id="cont">
     <div id="areana">
       <div id="user">
+        
       </div>
 
       <div id="vs"><img src="img/vs.png" alt="VS"></div>
@@ -16,8 +15,7 @@ document.getElementById("app").innerHTML = `
       </div>
     </div>
 
-    <div id="results">
-    </div>
+    <div id="results"></div>
   </div>
 </div>
 `;
@@ -29,13 +27,9 @@ let optionImg = [
   `<img src="img/scissors.png" alt="SCISSORS">`
 ];
 
-let userInput = prompt(
-  `Wellcome to RockPaperScissors.js. Please enter your pick!`
-);
+let userInput = document.getElementById("userSelection").value;
 
 const myChoice = userInput => {
-  userInput = userInput.toLowerCase();
-
   if (userInput === "rock") {
     console.log(`you chose ${userInput}. \n`);
     document.getElementById("user").innerHTML = `
